@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ToDoItem = ({index, item, onBoxClick}) => {
+const ToDoItem = ({index, item, onBoxClick, onDelete}) => {
   return (
     <>
       <div>
@@ -10,6 +10,7 @@ const ToDoItem = ({index, item, onBoxClick}) => {
           onChange={(e) => onBoxClick(index, e.target.checked)}
         />
         <p className='inline'> {item.taskName}</p>
+        <button type="submit" onClick={() => onDelete(index)}>Delete</button>
       </div>
     </>
   )

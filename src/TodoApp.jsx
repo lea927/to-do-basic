@@ -35,10 +35,19 @@ function TodoApp() {
     setTodos(updatedToDos)
   }
 
+  const handleDelete = (index) => {
+    const updatedToDos = todos.filter((_todo, idx) => idx !== index)
+    setTodos(updatedToDos)
+  }
+
   return (
     <>
       <h1 className='uppercase'>Todo List</h1>
-      <ToDoList items={todos} onBoxClick={handleCheckboxClick} />
+      <ToDoList
+        items={todos}
+        onBoxClick={handleCheckboxClick}
+        onDelete={handleDelete}
+      />
       <hr />
       <ToDoForm onSaveToDo={handleSubmit}/>
     </>

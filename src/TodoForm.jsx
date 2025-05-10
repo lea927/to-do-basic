@@ -10,8 +10,12 @@ const ToDoForm = ({onSaveToDo}) => {
           type="text"
           placeholder="Take out trash"
           onChange={(e) => setTask(e.target.value)}
+          value={task}
         />
-        <button type="submit" onClick={() => onSaveToDo(task)}>Save</button>
+        <button type="submit" onClick={() => {
+          onSaveToDo(task)
+          setTask('')
+        }}>Save</button>
       </div>
     </>
   )
