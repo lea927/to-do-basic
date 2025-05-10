@@ -1,9 +1,19 @@
 import React from 'react'
+import ToDoItem from './ToDoItem'
 
-const TodoList = () => {
+const ToDoList = ({items, onBoxClick}) => {
   return (
-    <div>TodoList</div>
+    <div>
+      {items.map((item, index) => (
+          <ToDoItem
+            key={index}
+            item={item}
+            onBoxClick={onBoxClick}
+            index={index}
+          />
+      ))}
+    </div>
   )
 }
 
-export default TodoList
+export default ToDoList

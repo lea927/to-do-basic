@@ -1,8 +1,17 @@
 import React from 'react'
 
-const ToDoItem = () => {
+const ToDoItem = ({index, item, onBoxClick}) => {
   return (
-    <div>ToDoItem</div>
+    <>
+      <div>
+        <input
+          type="checkbox"
+          checked={item.isComplete}
+          onChange={(e) => onBoxClick(index, e.target.checked)}
+        />
+        <p className='inline'> {item.taskName}</p>
+      </div>
+    </>
   )
 }
 
