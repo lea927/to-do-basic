@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ToDoItem = ({index, item, onBoxClick, onDelete}) => {
+const ToDoItem = ({index, item, onBoxClick, onDelete, onEdit, onEditToggle}) => {
   return (
     <>
       <div>
@@ -11,6 +11,10 @@ const ToDoItem = ({index, item, onBoxClick, onDelete}) => {
         />
         <p className='inline'> {item.taskName}</p>
         <button type="submit" onClick={() => onDelete(index)}>Delete</button>
+        <button type="submit" onClick={() => {
+          onEdit(index)
+          onEditToggle(true)
+        }}>Edit</button>
       </div>
     </>
   )

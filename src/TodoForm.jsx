@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-const ToDoForm = ({onSaveToDo}) => {
+const ToDoForm = ({onSaveToDo, itemToEdit, onEditToggle}) => {
   const [task, setTask] = useState('')
+  const { taskName } = itemToEdit
+
+  useEffect(()=> {
+    setTask(taskName)
+  }, [taskName])
 
   return (
     <>
@@ -15,6 +20,7 @@ const ToDoForm = ({onSaveToDo}) => {
         <button type="submit" onClick={() => {
           onSaveToDo(task)
           setTask('')
+          onEditToggle(false)
         }}>Save</button>
       </div>
     </>
