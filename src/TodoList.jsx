@@ -3,7 +3,7 @@ import ToDoItem from './ToDoItem'
 
 const ToDoList = ({items, onBoxClick, onDelete, onEdit, onEditToggle}) => {
   return (
-    <div>
+    <div className='bg-gray-100 rounded-lg p-6'>
       {items.map((item, index) => (
           <ToDoItem
             key={index}
