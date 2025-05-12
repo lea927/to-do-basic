@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaTrash, FaEdit } from 'react-icons/fa';
 
 const ToDoItem = ({index, item, onBoxClick, onDelete, onEdit, onEditToggle}) => {
   return (
@@ -13,11 +14,15 @@ const ToDoItem = ({index, item, onBoxClick, onDelete, onEdit, onEditToggle}) => 
           <p className='inline text-xl'> {item.taskName}</p>
         </div>
         <div className='inline'>
-          <button type="submit" onClick={() => onDelete(index)}>Delete</button>
-          <button type="submit" onClick={() => {
+          <button className='p-3' type="submit" onClick={() => onDelete(index)}>
+            <FaTrash className=''/>
+          </button>
+          <button className='p-3' type="submit" onClick={() => {
             onEdit(index)
             onEditToggle(true)
-          }}>Edit</button>
+          }}>
+            <FaEdit />
+          </button>
         </div>
       </div>
     </>

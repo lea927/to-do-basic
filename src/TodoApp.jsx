@@ -102,13 +102,17 @@ function TodoApp() {
               <option value="complete">Complete</option>
             </select>
           </div>
-          <ToDoList
-            items={filteredTodos}
-            onBoxClick={handleCheckboxClick}
-            onDelete={handleDelete}
-            onEdit={handleEdit}
-            onEditToggle={handleMode}
-          />
+          { filteredTodos.length === 0 ? (
+            <p className='text-center text-2xl'>No items found 🫡</p>
+          ) : (
+            <ToDoList
+              items={filteredTodos}
+              onBoxClick={handleCheckboxClick}
+              onDelete={handleDelete}
+              onEdit={handleEdit}
+              onEditToggle={handleMode}
+            />
+          )}
           <hr />
           <ToDoForm
             onSaveToDo={handleSubmit}
