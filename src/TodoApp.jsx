@@ -9,6 +9,7 @@ function TodoApp() {
   const [itemToEdit, setItemToEdit] = useState('')
   const [onEditMode, setOnEditMode] = useState(false)
   const [filteredTodos, setFilteredTodos] = useState([])
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     setFilteredTodos(todos)
@@ -95,7 +96,12 @@ function TodoApp() {
         <div className='w-4/5'>
           <h1 className='uppercase text-6xl font-bold text-center'>Todo List</h1>
           <div className='flex justify-between'>
-            <button className='text-2xl font-medium text-white bg-blue-600 hover: cursor-pointer py-4 px-8 rounded-md' type="submit">Add Task</button>
+            <button
+              onClick={() => setShowModal(true)}
+              className='text-2xl font-medium text-white bg-blue-600 hover: cursor-pointer py-4 px-8 rounded-md' 
+            >
+              Add Task
+            </button>
             <select className='text-2xl font-medium py-4 px-8 rounded-md bg-gray-200' onChange={handleFilter}>
               <option value="all">All</option>
               <option value="not_started">Not started</option>
@@ -113,8 +119,9 @@ function TodoApp() {
               onEditToggle={handleMode}
             />
           )}
-          <hr />
           <ToDoForm
+            show={showModal}
+            onClose={() => setShowModal(false)}
             onSaveToDo={handleSubmit}
             itemToEdit={itemToEdit}
             onEditToggle={handleMode}
