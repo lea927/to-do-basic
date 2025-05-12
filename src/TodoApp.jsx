@@ -91,14 +91,17 @@ function TodoApp() {
 
   return (
     <>
-      <div className='flex justify-center items-center'>
-        <div>
-          <h1 className='uppercase'>Todo List</h1>
-          <select onChange={handleFilter}>
-            <option value="all">All</option>
-            <option value="not_started">Not started</option>
-            <option value="complete">Complete</option>
-          </select>
+      <div className='flex justify-center items-center h-screen'>
+        <div className='w-4/5'>
+          <h1 className='uppercase text-6xl font-bold text-center'>Todo List</h1>
+          <div className='flex justify-between'>
+            <button className='text-2xl font-medium text-white bg-blue-600 hover: cursor-pointer py-4 px-8 rounded-md' type="submit">Add Task</button>
+            <select className='text-2xl font-medium py-4 px-8 rounded-md bg-gray-200' onChange={handleFilter}>
+              <option value="all">All</option>
+              <option value="not_started">Not started</option>
+              <option value="complete">Complete</option>
+            </select>
+          </div>
           <ToDoList
             items={filteredTodos}
             onBoxClick={handleCheckboxClick}

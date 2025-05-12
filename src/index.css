@@ -4,5 +4,10 @@
 
 :root {
   --primary-font: "Roboto", sans-serif;
+  --primary-color: RGB(102, 101, 133);
+  --accent-color: RGB(100, 112, 230);
+  --bg-color-primary: RGB(248, 249, 254);
   font-family: var(--primary-font);
+  color: var(--primary-color);
+  background-color: var(--bg-color-primary);
 }
