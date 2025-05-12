@@ -91,25 +91,29 @@ function TodoApp() {
 
   return (
     <>
-      <h1 className='uppercase'>Todo List</h1>
-      <select onChange={handleFilter}>
-        <option value="all">All</option>
-        <option value="not_started">Not started</option>
-        <option value="complete">Complete</option>
-      </select>
-      <ToDoList
-        items={filteredTodos}
-        onBoxClick={handleCheckboxClick}
-        onDelete={handleDelete}
-        onEdit={handleEdit}
-        onEditToggle={handleMode}
-      />
-      <hr />
-      <ToDoForm
-        onSaveToDo={handleSubmit}
-        itemToEdit={itemToEdit}
-        onEditToggle={handleMode}
-      />
+      <div className='flex justify-center items-center'>
+        <div>
+          <h1 className='uppercase'>Todo List</h1>
+          <select onChange={handleFilter}>
+            <option value="all">All</option>
+            <option value="not_started">Not started</option>
+            <option value="complete">Complete</option>
+          </select>
+          <ToDoList
+            items={filteredTodos}
+            onBoxClick={handleCheckboxClick}
+            onDelete={handleDelete}
+            onEdit={handleEdit}
+            onEditToggle={handleMode}
+          />
+          <hr />
+          <ToDoForm
+            onSaveToDo={handleSubmit}
+            itemToEdit={itemToEdit}
+            onEditToggle={handleMode}
+          />
+        </div>
+    </div>
     </>
   )
 }
